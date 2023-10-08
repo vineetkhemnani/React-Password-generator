@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useRef } from 'react'
-
-function App() {
+import UseRefuseState from './useRef/UseRefuseState.jsx'
+const App =()=> {
   // track length of password
   const [length, setLength] = useState(6)
   // state for tracking password
@@ -13,6 +13,7 @@ function App() {
   // state to change button text
   const [copied,setCopied] = useState(false);
 
+  // store the ref of password to access it anywhere
   const passwordRef = useRef(null);
 
   // method that runs on "copy" button onClick event
@@ -69,7 +70,7 @@ function App() {
             onClick={copyPasswordToClipboard}
             className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0"
           >
-            {copied?'Copied!':'Copy'}
+            {copied ? 'Copied!' : 'Copy'}
           </button>
         </div>
         <div className="flex text-sm gap-x-2">
@@ -112,6 +113,9 @@ function App() {
           </div>
         </div>
       </div>
+      {/* uncomment below code to learn useRef vs useState */}
+        {/* <UseRefuseState/> */}
+      
     </>
   )
 }
